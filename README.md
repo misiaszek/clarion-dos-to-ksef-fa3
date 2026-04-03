@@ -25,12 +25,34 @@ sprawdzonych rozwiązaniach, spełniając jednocześnie wymogi Ministerstwa Fina
   w Aplikacji Podatnika 2.0.
 - **AI-Powered** — Kod opracowany przy wsparciu LLM w rekordowe 4 dni.
 
-## 🚀 Jak to działa?
+## 🚀 Jak wyeksportować fakturę z FPP do KSeF?
 
-1. Odpalasz program (GUI w Tkinter).
-2. Wskazujesz pliki `TRANHEAD.DAT` i `TRANELEM.DAT`.
-3. Wybierasz faktury do eksportu.
-4. Otrzymujesz plik XML, który wrzucasz na portal Ministerstwa Finansów.
+### Przygotowanie (jednorazowe)
+
+1. Zainstaluj Python 3.8+ (jeśli nie masz — [python.org](https://www.python.org/downloads/))
+2. Skopiuj `config.json.example` do `config.json`
+3. Uzupełnij w `config.json`:
+   - dane sprzedawcy (NIP, nazwa, adres)
+   - numer konta bankowego (pojawi się na fakturach z odroczonym terminem)
+   - ścieżki do plików `TRANHEAD.DAT` i `TRANELEM.DAT` z katalogu FPP
+
+### Codzienna praca
+
+1. Wystaw fakturę w FPP jak zwykle
+2. Uruchom eksporter:
+
+```bash
+python fpp_ksef_export.py
+```
+
+3. W oknie programu wybierz fakturę z listy (najnowsze na górze)
+4. Sprawdź podgląd — dane nabywcy, pozycje, kwoty
+5. Kliknij **Export to KSeF XML** i zapisz plik `.xml`
+6. Otwórz [Aplikację Podatnika 2.0](https://www.podatki.gov.pl/ksef/) i wczytaj wygenerowany XML
+7. Zweryfikuj i wyślij fakturę do KSeF
+
+Wyeksportowane faktury oznaczane są ✓ na liście, a rejestr zapisywany jest
+w `exported.json` (tworzony automatycznie).
 
 ## Wymagania
 
@@ -38,23 +60,13 @@ sprawdzonych rozwiązaniach, spełniając jednocześnie wymogi Ministerstwa Fina
 - tkinter (wbudowany w standardową instalację Python)
 - Brak zewnętrznych zależności
 
-## Konfiguracja
-
-1. Skopiuj `config.json.example` do `config.json`
-2. Uzupełnij dane sprzedawcy (NIP, adres), konto bankowe i ścieżki do plików DAT
-3. Uruchom:
-
-```bash
-python fpp_ksef_export.py
-```
-
 ## Format bazy danych
 
 Aplikacja odczytuje pliki binarne Clarion DOS 3.x:
 
 - **TRANHEAD.DAT** — nagłówki faktur (dane kontrahenta, daty, sumy)
 - **TRANELEM.DAT** — pozycje faktur (produkty, ilości, ceny)
-- **MATERIA.DAT** — katalog produktów (opcjonalnie, do PKWiU)
+- **MATERIA.DAT** — katalog produktów (opcjonalnie, do odczytu PKWiU)
 
 Kodowanie tekstu: Mazovia (DOS Polish).
 
@@ -63,8 +75,6 @@ Kodowanie tekstu: Mazovia (DOS Polish).
 - Na Windows można zmienić rozszerzenie na `.pyw` aby ukryć okno konsoli
 - Reguły GTU w kodzie (sekcja `GTU_RULES`) wymagają dostosowania
   do asortymentu firmy — domyślne reguły są przykładowe
-- Plik `exported.json` tworzony jest automatycznie jako rejestr
-  wyeksportowanych faktur
 - Schemat KSeF FA(3) obowiązuje od 1 lutego 2026
 
 ## Licencja
