@@ -1,0 +1,12 @@
+config.json
+exported.json
+
+*.DAT
+*.BAS
+
+faktura_VAT_*.xml
+*.xml
+
+__pycache__/
+*.pyc
+*.pyo

@@ -1,0 +1,19 @@
+{
+  "seller": {
+    "nip": "6761011440",
+    "name": "CDN S.A.",
+    "addr1": "UL. LEA 114",
+    "addr2": "30-133 KRAKÓW",
+    "city": "KRAKÓW",
+    "country": "PL",
+    "footer": "Dziękujemy za zakupy"
+  },
+  "bank": {
+    "nrRB": "",
+    "nazwa": ""
+  },
+  "paths": {
+    "tranhead": "C:/fpp/CDN_26/TRANHEAD.DAT",
+    "tranelem": "C:/fpp/CDN_26/TRANELEM.DAT"
+  }
+}
