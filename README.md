@@ -5,9 +5,9 @@ kompatybilny z **Aplikacją Podatnika 2.0** (Ministerstwo Finansów).
 
 ## Przeznaczenie
 
-Narzędzie legacy do obsługi **Centrum Dystrybucji Naukowej (CDN)** w roku
-obrachunkowym 2025/2026. Odczytuje bazy danych Clarion DOS (TRANHEAD.DAT,
-TRANELEM.DAT) i generuje faktury XML zgodne ze schematem FA(3) KSeF.
+Narzędzie legacy do obsługi FPP w roku obrachunkowym 2025/2026. 
+Odczytuje bazy danych Clarion DOS (TRANHEAD.DAT, TRANELEM.DAT) 
+i generuje faktury XML zgodne ze schematem FA(3) KSeF.
 
 ## Wymagania
 
