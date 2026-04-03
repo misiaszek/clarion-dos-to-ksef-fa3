@@ -1,13 +1,36 @@
-# FPP KSeF Export (Legacy)
+# 🚀 Clarion DOS to KSeF FA(3) Exporter
 
-Eksporter faktur z systemu FPP (Clarion DOS 3.x) do formatu KSeF FA(3) XML,
-kompatybilny z **Aplikacją Podatnika 2.0** (Ministerstwo Finansów).
+**"Legacy Meets Modernity"** – Reanimacja systemów DOS dla Krajowego Systemu e-Faktur (A.D. 2026)
 
-## Przeznaczenie
+Ten program to lekki, napisany w Pythonie most (connector), który wyciąga dane
+z archiwalnych baz danych Clarion 3.x (pliki `.DAT`) – używanych m.in.
+w legendarnym systemie **CDN FPP** – i konwertuje je do nowoczesnego formatu XML
+zgodnego ze strukturą KSeF FA(3).
 
-Narzędzie legacy do obsługi FPP w roku obrachunkowym 2025/2026. 
-Odczytuje bazy danych Clarion DOS (TRANHEAD.DAT, TRANELEM.DAT) 
-i generuje faktury XML zgodne ze schematem FA(3) KSeF.
+## 🛠️ Dlaczego to powstało?
+
+W 2026 roku wiele firm wciąż korzysta z systemów DOS-owych ze względu na ich
+niesamowitą szybkość obsługi klienta ("klawiatura-only"). Zamiast wydawać
+dziesiątki tysięcy na nowe systemy ERP, ten skrypt pozwala zostać przy
+sprawdzonych rozwiązaniach, spełniając jednocześnie wymogi Ministerstwa Finansów.
+
+## ✨ Kluczowe funkcje
+
+- **Bezpośredni odczyt plików .DAT** — Obsługa niskopoziomowa formatów Clarion
+  (BCD, DECIMAL, specyficzne daty od 1800 r.).
+- **Kodowanie Mazovia** — Pełna tablica mapowania polskich znaków z DOS na UTF-8.
+- **Inteligentne GTU** — Automatyczna klasyfikacja kodów towarowych
+  (np. elektronika GTU_06) na podstawie Twoich reguł w Pythonie.
+- **Zgodność z FA(3)** — Generuje gotowe pliki XML do wczytania
+  w Aplikacji Podatnika 2.0.
+- **AI-Powered** — Kod opracowany przy wsparciu LLM w rekordowe 4 dni.
+
+## 🚀 Jak to działa?
+
+1. Odpalasz program (GUI w Tkinter).
+2. Wskazujesz pliki `TRANHEAD.DAT` i `TRANELEM.DAT`.
+3. Wybierasz faktury do eksportu.
+4. Otrzymujesz plik XML, który wrzucasz na portal Ministerstwa Finansów.
 
 ## Wymagania
 
